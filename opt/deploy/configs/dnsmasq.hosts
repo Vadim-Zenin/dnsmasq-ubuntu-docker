@@ -1,0 +1,4 @@
+192.168.32.1   my-example-host01.my-example-localdomain.localz   my-example-host01
+192.168.32.1   my-example-dns.my-example-localdomain.localz   my-example-dns
+192.168.32.8   my-example-host02.my-example-localdomain.localz   my-example-host02
+192.168.32.8   my-example-git.example.com
