@@ -11,9 +11,9 @@ The image is intended to provide DNS, DHCP and TFTP service in small, middle and
 > **Important Note**:
 >
 > Please use an attached volume. Example:  `-v /opt/dnsmasq/etc:/etc/dnsmasq`
-> The image will extract default images if an attached volume either directory empty or dnsmasq.conf deleted/renamed. 
-> Please copy your modified files before you rename or delete dnsmasq.conf in the attached volume.
-> If you do not use the attached volume all configurations will be reset to initial after docker restart.
+> The image will extract default configuration files if an attached volume either directory empty or dnsmasq.conf deleted/renamed. 
+> Please copy or backup your modified configuration files to different lo before you rename or delete dnsmasq.conf in the attached volume.
+> If you do not use the attached volume all configuration will be reset to initial after docker restart.
 
 ### Build a docker image
 
@@ -52,7 +52,14 @@ systemctl stop systemd-resolved
 ```bash
 mkdir -p -m 775 /opt/dnsmasq/etc/
 ```
-- Run the docker image with ports for DNS and TFTPD
+#### Run the docker image with ports for DNS and TFTPD in interactive
+
+```bash
+docker run -it --rm --name test -p 53:53/tcp -p 53:53/udp -p 69:69/udp -v /opt/dnsmasq/etc:/etc/dnsmasq vadimzenin/dnsmasq_ubuntu_18.04:latest
+```
+
+#### Run the docker image with ports for DNS and TFTPD in background
+
 ```bash
 docker run -it --rm --name test -p 53:53/tcp -p 53:53/udp -p 69:69/udp -v /opt/dnsmasq/etc:/etc/dnsmasq vadimzenin/dnsmasq_ubuntu_18.04:latest
 ```
@@ -84,7 +91,7 @@ Docker registry [link](https://hub.docker.com/r/vadimzenin/dnsmasq_ubuntu_18.04/
 
 ### License
 
-Licensed under the GNU GENERAL PUBLIC LICENSE Version 3 License.  See the LICENSE file for details.
+Licensed under the GNU GENERAL PUBLIC LICENSE Version 3 License.  See the LICENSE [file](https://github.com/Vadim-Zenin/dnsmasq-ubuntu-docker/blob/master/LICENSE) for details.
 
 ### Author Information
 
