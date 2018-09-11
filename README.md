@@ -61,7 +61,7 @@ docker run -it --rm --name test -p 53:53/tcp -p 53:53/udp -p 69:69/udp -v /opt/d
 #### Run the docker image with ports for DNS and TFTPD in background
 
 ```bash
-docker run -it --rm --name test -p 53:53/tcp -p 53:53/udp -p 69:69/udp -v /opt/dnsmasq/etc:/etc/dnsmasq vadimzenin/dnsmasq_ubuntu_18.04:latest
+docker run -d --rm --name test -p 53:53/tcp -p 53:53/udp -p 69:69/udp -v /opt/dnsmasq/etc:/etc/dnsmasq vadimzenin/dnsmasq_ubuntu_18.04:latest
 ```
 
 If port(s) are used system return message:
